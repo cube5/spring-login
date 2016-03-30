@@ -3,22 +3,19 @@ server.port: 8080
 spring:
   profiles.active: dev
   
-#  thymeleaf:
-#    cache: false # Enable template caching.
-#    check-template-location: true # Check that the templates location exists.
-#    content-type: text/html # Content-Type value.
-#    encoding: UTF-8 # Template encoding.
-#    mode: HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
-#    prefix: classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
-#    suffix: .html # Suffix that gets appended to view names when building a URL.
+  thymeleaf:
+    cache: false # Enable template caching.
+    check-template-location: true # Check that the templates location exists.
+    content-type: text/html # Content-Type value.
+    encoding: UTF-8 # Template encoding.
+    mode: HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+  datasource:
+    platform: h2
+    url: "jdbc:h2:file:${user.home}/SPRING_LOGIN;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=true"
+    driverClassName: "org.h2.Driver"
+    initialize: false
     
 # LOGGING
 logging:
-#  config: # Location of the logging configuration file. For instance `classpath:logback.xml` for Logback
-#  exception-conversion-word: # Conversion word used when logging exceptions.
   level: 
     com.cube5: DEBUG # Log levels severity mapping. For instance `logging.level.org.springframework:DEBUG`
-#  pattern.console: # Appender pattern for output to the console. Only supported with the default logback setup.
-#  pattern.file: # Appender pattern for output to the file. Only supported with the default logback setup.
-#  pattern.level: # Appender pattern for log level (default %5p). Only supported with the default logback setup.
-  

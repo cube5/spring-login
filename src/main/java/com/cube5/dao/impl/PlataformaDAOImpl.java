@@ -22,16 +22,20 @@ public class PlataformaDAOImpl implements PlataformaDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
     
+    public void init() {
+        log.debug("creando tabla plataforma...");
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS plataforma(PLATAFORMAID VARCHAR(35))");
+        
+        jdbcTemplate.update("INSERT INTO plataforma values (?)", "JAVA");
+        jdbcTemplate.update("INSERT INTO plataforma values (?)", "UNIX");
+        jdbcTemplate.update("INSERT INTO plataforma values (?)", "MAC_OSX");
+    }
+    
     public Plataforma getPlataformaById(String plataformaId) {
         return null;
     }
     
     public List<Plataforma> getPlataformas() {
-        log.debug("creando tabla plataforma...");
-        jdbcTemplate.execute("CREATE TABLE plataforma(PLATAFORMAID VARCHAR(35))");
-        jdbcTemplate.update("INSERT INTO plataforma values (?)", "UNIX_JAVA");
-        jdbcTemplate.update("INSERT INTO plataforma values (?)", "MAC_OSX");
-        
         log.debug("consultando plataformas...");
         
         List<Plataforma> plataformas = jdbcTemplate.query(

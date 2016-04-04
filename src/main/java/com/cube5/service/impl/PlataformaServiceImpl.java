@@ -19,6 +19,10 @@ public class PlataformaServiceImpl implements PlataformaService {
     @Autowired
     private PlataformaDAO plataformaDao;
     
+    public void initialize() {
+        plataformaDao.init();
+    }
+    
     public Plataforma getPlataformaById(String plataformaId) {
         return null;
     }

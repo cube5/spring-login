@@ -19,3 +19,4 @@ spring:
 logging:
   level: 
     com.cube5: DEBUG # Log levels severity mapping. For instance `logging.level.org.springframework:DEBUG`
+    org.springframework.jdbc: DEBUG

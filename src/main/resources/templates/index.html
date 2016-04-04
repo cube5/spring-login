@@ -15,11 +15,22 @@
 <body>
     <div class="jumbotron">
         <div class="container">
-            <h1 th:inline="text">Hello [[${httpRequest.remoteUser}]]</h1>
+            <h1>DocAuto Web</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-6"></div>
+        <div class="col-sm-6">
+            <select class="form-control">
+                <option value="">&mdash;</option>
+                <option th:each="plataforma : ${plataformas}"
+                    th:text="${plataforma.plataformaId}">
+                </option>
+            </select>
         </div>
     </div>
     <form th:action="@{/logout}" method="post">
-        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Out"/>
+        <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
     </form>
 </body>
 </html>
